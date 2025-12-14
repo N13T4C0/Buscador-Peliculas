@@ -75,7 +75,7 @@ function maquetarPelis(peliArray) {
     img.src = peliculas.Poster;
     img.style.width = "160px";
     img.style.cursor = "pointer";
-    img.onerror = () => img.src = "./homelo.webp";
+    img.onerror = () => img.src = "./img/homelo.webp";
 
     let titulo = document.createElement("p");
     titulo.textContent = peliculas.Title;
@@ -152,13 +152,13 @@ function detalleDiv(id, imagen, tituloPeli, tipo, rating, premios, director, act
     }
   }
 
-  let imgFav = esFav ? "./favoritosPokeAbierta.webp" : "./PokeballCerrada.jpg";
+  let imgFav = esFav ? "./img/favoritosPokeAbierta.webp" : "./img/PokeballCerrada.jpg";
   let contenido = document.createElement("div");
   contenido.className = "detalle-contenido";
 
   contenido.innerHTML =
     "<div class=\"poster\">" +
-    "<img src=\"" + imagen + "\" onerror=\"this.src='./homelo.webp'\">" +
+    "<img src=\"" + imagen + "\" onerror=\"this.src='./img/homelo.webp'\">" +
     "</div>" +
     "<div class=\"info\">" +
     "<img src=\"" + imgFav + "\" class=\"btn-favorito\">" +
@@ -193,12 +193,12 @@ function detalleDiv(id, imagen, tituloPeli, tipo, rating, premios, director, act
     if (esFav) {
       // quitamos de fav
       pelisFavoritas = pelisFavoritas.filter(p => p.id != id); // si no va probar cn splice
-      pokeball.src = "./PokeballCerrada.jpg";
+      pokeball.src = "./img/PokeballCerrada.jpg";
       esFav = false;
     } else {
       // Añadir a favoritos
       pelisFavoritas.push(peli);
-      pokeball.src = "./favoritosPokeAbierta.webp";
+      pokeball.src = "./img/favoritosPokeAbierta.webp";
       esFav = true;
     }
 
@@ -270,12 +270,11 @@ function favpelis() {
       imagen.src = peli.imagen;
       imagen.style.width = "100px";
       imagen.style.height = "100px";
-      imagen.onerror = () => imagen.src = "./homelo.webp";
+      imagen.onerror = () => imagen.src = "./img/homelo.webp";
       contenido.appendChild(imagen);
       idFav = peli.id;
     });
   }
-
 
   // boton para cerrar
   let botonCerrar = document.createElement("button");
